@@ -27,7 +27,7 @@ export const projects = [
     title: "Student Online Exam Management System",
     subtitle: "Username: admin or student_1 & Password: 123456",
     description:
-      "Technology Stack: ASP.NET Web Forms, .Net Framework 4.8, Entity Framework, Bootstrap, jQuery",
+      "Technology Stack: ASP.NET Web Forms, .NET Framework 4.8, Entity Framework, HTML/CSS/JavaScript, Bootstrap and jQuery",
     image: "./project-4.gif",
     link: "https://soems.yzq.nz",
   },
@@ -36,7 +36,7 @@ export const projects = [
     title: "Academic Performance Management System",
     subtitle: "Username: admin or 20221011 & Password: 123456",
     description:
-      "Technology Stack: ASP.NET Web Forms, .NET Framework 4.8, Entity Framework, Bootstrap, jQuery",
+      "Technology Stack: ASP.NET Web Forms, .NET Framework 4.8, Entity Framework, HTML/CSS/JavaScript, Bootstrap and jQuery",
     image: "./project-5.gif",
     link: "https://sapms.yzq.nz",
   },
@@ -124,14 +124,14 @@ export const myWork = [
 
 export const skills = [
   ".NET Framework/Core",
-  "Python with Flask",
-  "Mysql/MongoDB/Amazon RDS",
   "React, Redux",
   "Vue.js, Vux",
   "Node.js",
+  "Mysql/MongoDB/Amazon RDS",
+  "Python with Flask",
+  "GitHub, Azure DevOps, Docker, Jira",
+  "Linux, Windows Server, Nginx, IIS, Apache",
   "GraphQL & REST",
   "Java, J2EE, SpringBoot",
-  "GitHub, Azure DevOps, Docker",
-  "Linux, Windows Server, Nginx, IIS, Apache",
   "Agile, CI/CD, DDD, TDD, SOLID principles"
 ];

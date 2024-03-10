@@ -5,24 +5,47 @@ export default function Contact() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    function encode(data) {
-        return Object.keys(data)
-          .map(
-            (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-          )
-          .join("&");
-      }
-    
-      function handleSubmit(e) {
-        e.preventDefault();
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "contact", name, email, message }),
+    function handleSubmit(e) {
+      e.preventDefault();
+      // Formspree的终点
+      const endpoint = "https://formspree.io/f/xjvnooaz";
+  
+      const formData = {
+        name: name,
+        email: email,
+        message: message,
+      };
+  
+      fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then(response => {
+          if (response.ok) {
+            alert("消息已发送！");
+            // 可选，这里可以重置表单字段
+            setName("");
+            setEmail("");
+            setMessage("");
+          } else {
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                alert(data["errors"].map(error => error["message"]).join(", "));
+              } else {
+                alert("提交表单时出现问题！");
+              }
+            });
+          }
         })
-          .then(() => alert("Message sent!"))
-          .catch((error) => alert(error));
-      }
+
+        .catch(error => {
+          alert("提交表单时出现问题！");
+        });
+    }
 
       return (
         <section id="contact" className="relative">
